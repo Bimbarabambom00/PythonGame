@@ -3,7 +3,7 @@ import os
 from pygame.locals import *
 surface = pygame.display.set_mode((1280,720))
 surface.fill((55,55,55))
-pygame.display.set_caption("Game Python")
+pygame.display.set_caption("Game Python Construction")
 
 class PlayerSprite:
     position_left = 0
