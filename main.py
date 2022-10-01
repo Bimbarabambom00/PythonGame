@@ -12,6 +12,7 @@ surface.fill((55,55,55))
 pygame.display.set_caption("Game Python Construction")
 
 red = (138,7,7)
+green = (124, 252, 0)
 
 class playerSprite:
     position_left = 200
@@ -25,12 +26,16 @@ class playerSprite:
     movement = 2
     mainMovement = 2
 
+
 def drawBackground():
     surface.fill((55,55,55))
 
 def playerUpdate(x):
+    surface.fill((55,55,55))
     pygame.draw.rect(surface, red, pygame.Rect(x.position_left, x.position_top, x.width, x.height),  3) 
+    pygame.draw.line(surface,green,((x.position_left+(x.width/2)),(x.position_top+(x.height/2))), (pygame.mouse.get_pos()))
 playerUpdate(playerSprite())
+
 
 
 while True:
@@ -78,47 +83,47 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYUP:
             if event.key == 97:
-                print("puszczono A")
+                # print("puszczono A")
                 playerSprite.keyApressed = False
             if event.key == 100:
-                print("puszczono D")
+                # print("puszczono D")
                 playerSprite.keyDpressed = False
             if event.key == 115:
-                print("puszczono A")
+                # print("puszczono A")
                 playerSprite.keySpressed = False
             if event.key == 119:
-                print("puszczono D")
+                # print("puszczono D")
                 playerSprite.keyWpressed = False
 
 
         if event.type == pygame.KEYDOWN:
             os.system('cls')
-            print(event.key)
+            # print(event.key)
             drawBackground()
             playerUpdate(playerSprite())
             if event.key == 97:
-                print("← LEFT_A")
+                # print("← LEFT_A")
                 #LEFT
                 
                 playerSprite.keyApressed = True
 
                 #/LEFT
             if event.key == 100:
-                print("→ RIGHT_D")
+                #print("→ RIGHT_D")
                 #RIGHT
 
                 playerSprite.keyDpressed = True
 
                 #/RIGHT
             if event.key == 115:
-                print("↓ DOWN_S")
+                # print("↓ DOWN_S")
                 #DOWN
 
                 playerSprite.keySpressed = True
 
                 #/DOWN
             if event.key == 119:
-                print("↑ UP_W")
+                # print("↑ UP_W")
                 #UP
                 
                 playerSprite.keyWpressed = True
